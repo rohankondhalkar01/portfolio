@@ -27,43 +27,19 @@
             position: relative;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(17, 17, 17, 0.9);
-            padding: 15px 0;
-            text-align: center;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        section {
+            padding: 50px;
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
         }
 
-        nav a {
-            color: #e94560;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ff2e63;
-        }
-
-        header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            background: linear-gradient(135deg, #111, #222);
-            padding: 40px;
-            box-shadow: 0px 10px 25px rgba(255, 0, 0, 0.6);
-            border-radius: 15px;
-            margin-top: 120px;
-            text-align: center;
+        .section {
+            background: #222;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0px 6px 15px rgba(255, 0, 0, 0.3);
         }
 
         .profile-img {
@@ -73,122 +49,47 @@
             border: 5px solid #e94560;
             box-shadow: 0px 6px 20px rgba(233, 69, 96, 0.6);
             object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
         }
-
-        /* 3D Cube */
-        #cube-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            z-index: -1;
-        }
-
-        /* Floating Particles */
-        .particles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            top: 0;
-            left: 0;
-        }
-
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
     <header>
         <div class="header-text">
             <h1>Rohan Kondhalkar</h1>
             <p>Web Developer | Coder | Android Developer</p>
         </div>
-        <img src="rohan.jpeg" alt="Ninja Rohan" class="profile-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/200';">
+        <img src="rohan.jpeg" alt="Portfolio Image" class="profile-img">
     </header>
-
-    <div id="cube-container"></div>
-    <canvas class="particles"></canvas>
 
     <section id="about" class="section">
         <h2>About Me</h2>
-        <p>Currently pursuing MCA from MIT WPU. Silent like a shadow, swift like a bug fix. I am Rohan, a passionate programmer mastering the art of web development. My weapons of choice? Code, creativity, and caffeine.</p>
+        <p>Currently pursuing MCA from MIT WPU. Passionate about coding, designing, and developing efficient applications.</p>
     </section>
 
-    <footer>
-        <p>Summon Me: rkondhalkars111@gmail.com</p>
-        <a href="https://www.linkedin.com/in/rohan-kondhalkar-b1104530b" target="_blank">LinkedIn</a>
-        <a href="https://github.com/RohanKondhalkar" target="_blank">GitHub</a>
-    </footer>
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>Local Guide App</strong> - A travel guide app with recommendations.</li>
+            <li><strong>E-commerce Store</strong> - A responsive shopping platform.</li>
+            <li><strong>Portfolio Website</strong> - Showcasing my skills and projects.</li>
+        </ul>
+    </section>
 
-    <script>
-        // THREE.js 3D Cube Animation
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React.js, Node.js</li>
+            <li>Java, Android Development</li>
+            <li>Python, SQL</li>
+        </ul>
+    </section>
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById("cube-container").appendChild(renderer.domElement);
-
-        const geometry = new THREE.BoxGeometry(2, 2, 2);
-        const material = new THREE.MeshStandardMaterial({ color: 0xe94560, transparent: true, opacity: 0.6 });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-
-        // Light for 3D effect
-        const light = new THREE.PointLight(0xffffff, 1.2);
-        light.position.set(5, 5, 5);
-        scene.add(light);
-
-        camera.position.z = 5;
-
-        function animate() {
-            requestAnimationFrame(animate);
-            cube.rotation.x += 0.005;
-            cube.rotation.y += 0.005;
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-        // Floating Particles Effect
-        const canvas = document.querySelector('.particles');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = Array.from({ length: 100 }, () => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            r: Math.random() * 4 + 2,
-            d: Math.random() * 3 + 1
-        }));
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(233, 69, 96, 0.8)";
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fill();
-                p.y += p.d;
-                if (p.y > canvas.height) p.y = 0;
-            });
-            requestAnimationFrame(drawParticles);
-        }
-
-        drawParticles();
-    </script>
-
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Email: rkondhalkars111@gmail.com</p>
+        <p><a href="https://www.linkedin.com/in/rohan-kondhalkar-b1104530b" target="_blank">LinkedIn</a></p>
+        <p><a href="https://github.com/RohanKondhalkar" target="_blank">GitHub</a></p>
+    </section>
 </body>
 </html>
