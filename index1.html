@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ninja Theme</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #000000, #111111);
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        section {
+            padding: 50px;
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .section {
+            background: #222;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0px 6px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #e94560;
+            box-shadow: 0px 6px 20px rgba(233, 69, 96, 0.6);
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Rohan Kondhalkar</h1>
+            <p>Web Developer | Coder | Android Developer</p>
+        </div>
+        <img src="rohan.jpeg" alt="Portfolio Image" class="profile-img">
+    </header>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Currently pursuing MCA from MIT WPU. Passionate about coding, designing, and developing efficient applications.</p>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>Local Guide App</strong> - A travel guide app with recommendations.</li>
+            <li><strong>E-commerce Store</strong> - A responsive shopping platform.</li>
+            <li><strong>Portfolio Website</strong> - Showcasing my skills and projects.</li>
+        </ul>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React.js, Node.js</li>
+            <li>Java, Android Development</li>
+            <li>Python, SQL</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Email: rkondhalkars111@gmail.com</p>
+        <p><a href="https://www.linkedin.com/in/rohan-kondhalkar-b1104530b" target="_blank">LinkedIn</a></p>
+        <p><a href="https://github.com/RohanKondhalkar" target="_blank">GitHub</a></p>
+    </section>
+</body>
+</html>
