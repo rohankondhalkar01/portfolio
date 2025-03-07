@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Rohan Kondhalkar - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
         
-        html {
-            scroll-behavior: smooth;
-        }
-        
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
@@ -22,38 +21,56 @@
             color: #fff;
             text-align: center;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
         }
 
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover { color: #ff6600; }
+
+        /* Header */
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 80px;
         }
 
         h1 {
             font-size: 3rem;
             text-shadow: 2px 2px 10px rgba(255, 69, 96, 0.8);
-            margin-bottom: 10px;
         }
 
-        .header-text {
+        .header-text { 
             background: rgba(0, 0, 0, 0.6);
             padding: 10px 20px;
             border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .header-text p {
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin: 0;
         }
 
         .profile-img {
@@ -63,31 +80,37 @@
             border: 5px solid #e94560;
             box-shadow: 0px 6px 20px rgba(233, 69, 96, 0.6);
             object-fit: cover;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s;
         }
 
-        .profile-img:hover {
-            transform: scale(1.1);
+        .profile-img:hover { transform: scale(1.1); }
+
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e94560;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin-top: 10px;
         }
+
+        .resume-btn:hover { background-color: #ff6600; }
 
         section {
             padding: 50px;
             width: 80%;
             max-width: 1000px;
             margin: 20px auto;
-        }
-
-        .section {
             background: linear-gradient(135deg, #1e1e1e, #333);
             border-radius: 15px;
-            padding: 40px;
             box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.5);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s;
         }
 
-        .section:hover {
-            transform: scale(1.02);
-        }
+        section:hover { transform: scale(1.02); }
 
         h2 {
             color: #e94560;
@@ -96,10 +119,10 @@
 
         ul {
             padding: 0;
+            list-style: none;
         }
 
         ul li {
-            list-style: none;
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             margin: 10px 0;
@@ -107,94 +130,118 @@
             transition: background 0.3s;
         }
 
-        ul li:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
+        ul li:hover { background: rgba(255, 255, 255, 0.3); }
 
-        /* Styling for links */
         a {
-            color: #ffcc00; /* Yellow */
+            color: #ffcc00;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
 
-        a:hover {
-            color: #ff6600; /* Orange */
+        a:hover { color: #ff6600; }
+
+        /* Contact Form */
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
         }
 
-        /* Project links styling */
-        section#projects a {
-            color: #00d9ff; /* Bright blue */
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+        form button {
+            background: #00ff99;
+            color: #000;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
         }
 
-        section#projects a:hover {
-            color: #ff6600; /* Orange */
-        }
+        form button:hover { background: #ff6600; }
 
-        /* Contact Links */
-        section#contact a {
-            color: #00ff99; /* Green */
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .profile-img { width: 150px; height: 150px; }
+            section { padding: 30px; }
         }
-
-        section#contact a:hover {
-            color: #ff6600;
-        }
-
     </style>
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>Rohan Kondhalkar</h1>
-        <div class="header-text">
-            <p>Web Developer | Coder | Android Developer</p>
-        </div>
-        <img src="rohan.jpeg" alt="Portfolio Image" class="profile-img">
+        <div class="header-text"><p id="typing-text"></p></div>
+        <img src="rohan.jpeg" loading="lazy" alt="Portfolio Image" class="profile-img">
+        <a href="resume.pdf" download class="resume-btn">Download Resume</a>
     </header>
 
-    <section id="about" class="section">
-        <h2>About Me</h2>
+    <section id="about" data-aos="fade-up">
+        <h2><i class="fas fa-user"></i> About Me</h2>
         <p>Currently pursuing MCA from MIT WPU. Passionate about coding, designing, and developing efficient applications.</p>
     </section>
 
-    <section id="education" class="section">
-        <h2>Education</h2>
+    <section id="education" data-aos="fade-up">
+        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
         <ul>
-            <li><strong><a href="https://mitwpu.edu.in/?utm_source=GMBlisting&utm_medium=organic">Master of Computer Applications (MCA)</strong> - MIT World Peace University</a></li>
-            <li><strong><a href="http://moderncollegepune.edu.in/">Bachelor of Computer Application</strong> - Pune University</a></li>
-            <li><strong><a href="https://www.despune.org/des-school-tilak-road">Higher Secondary Education</strong> - D.E.S Secondary School</a></li>
+            <li>Master in Computer Application - MIT World Peace University</li>
+            <li>bachelor in Computer Application - Pune University</li>
+            <li>HSC - Modern College of Arts,Commerece and Science</li>
+            <li>SSC - D.E.S Secondary School</li>
         </ul>
     </section>
 
-    <section id="projects" class="section">
-        <h2>Projects</h2>
+    <section id="projects" data-aos="fade-up">
+        <h2><i class="fas fa-code"></i> Projects</h2>
         <ul>
-            <li><strong><a href="https://rohankondhalkar01.github.io/AmazonClone/">Amazon Clone</strong> - A Clone platform.</a></li>
-            <li><strong><a href="https://rohankondhalkar01.github.io/portfolio/">Portfolio Website</strong> - Showcasing my skills and projects.</a></li>
-            <li><strong><a href="https://rohankondhalkar01.github.io/flexbox/">Basic Flex Price Table</strong> - Done for entertainment purpose.</a></li>
+            <li><a href="https://rohankondhalkar01.github.io/AmazonClone/">Amazon Clone</a></li>
+            <li><a href="https://rohankondhalkar01.github.io/portfolio/">Portfolio Website</a></li>
+            <li><a href="https://github.com/rohankondhalkar01/RohanCarService">Car Service Management</a></li>
+            <li><a href="https://rohankondhalkar01.github.io/flexbox/">FlexBox PriceBox</a></li>
         </ul>
     </section>
 
-    <section id="skills" class="section">
-        <h2>Skills</h2>
+    <section id="skills" data-aos="fade-up">
+        <h2><i class="fas fa-laptop-code"></i> Skills</h2>
         <ul>
             <li>HTML, CSS, JavaScript</li>
-            <li>Java, Android Development</li>
-            <li>Python</li>
+            <li>Python, Java, Android</li>
         </ul>
     </section>
 
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>Email: rkondhalkars111@gmail.com</p>
-        <p><a href="https://www.linkedin.com/in/rohan-kondhalkar-b1104530b" target="_blank">LinkedIn</a></p>
-        <p><a href="https://github.com/RohanKondhalkar01" target="_blank">GitHub</a></p>
+    <section id="contact" data-aos="fade-up">
+        <h2><i class="fas fa-envelope"></i> Contact</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name">
+            <input type="email" name="email" placeholder="Your Email">
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
     </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        let i = 0, text = "Web Developer | Coder | Android Developer";
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typing-text").innerHTML += text.charAt(i);
+                i++; setTimeout(typeWriter, 100);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
+
 </body>
 </html>
