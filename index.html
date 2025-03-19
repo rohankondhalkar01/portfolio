@@ -165,6 +165,61 @@
             h1 { font-size: 2rem; }
             .profile-img { width: 150px; height: 150px; }
             section { padding: 30px; }
+             #contact {
+            background: linear-gradient(135deg, #1e1e1e, #444);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #e94560;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        form textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: #ff6600;
+        }
+
+        form button {
+            background: #e94560;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        form button:hover {
+            background: #ff6600;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .profile-img { width: 150px; height: 150px; }
+            section { padding: 30px; }
+        }
         }
     </style>
 </head>
@@ -223,13 +278,15 @@
         </ul>
     </section>
 
-   <form action="https://formspree.io/f/xovejdag" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-</form>
+  <section id="contact" data-aos="fade-up">
+        <h2><i class="fas fa-envelope"></i> Contact</h2>
+        <form action="https://formspree.io/f/xovejdag" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
 
     
     </section>
