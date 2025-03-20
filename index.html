@@ -51,21 +51,6 @@
             font-weight: bold;
             transition: color 0.3s;
         }
-        .instagram-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background: #E1306C;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.instagram-link:hover {
-    background: #C13584;
-}
 
         nav ul li a:hover { color: #ff6600; }
 
@@ -255,6 +240,36 @@
         <div class="header-text"><p id="typing-text"></p></div>
         <img src="image.png" loading="lazy" alt="Portfolio Image" class="profile-img">
         <a href="resume.pdf" download class="resume-btn">Download Resume</a>
+        <a href="https://www.instagram.com/rohank0011/" target="_blank" class="instagram-box">
+            <i class="fab fa-instagram"></i> Follow Me
+        </a>
+        
+        <style>
+            .instagram-box {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 12px 20px;
+                background: #E1306C;
+                color: #fff;
+                border: 2px solid #C13584;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: 0.3s ease-in-out;
+                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            }
+        
+            .instagram-box:hover {
+                background: #C13584;
+                color: #fff;
+                border-color: #E1306C;
+                transform: scale(1.05);
+                box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+        
     </header>
 
     <section id="about" data-aos="fade-up">
